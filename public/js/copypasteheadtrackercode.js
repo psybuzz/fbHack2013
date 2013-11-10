@@ -92,6 +92,10 @@ document.addEventListener("facetrackingEvent", function( event ) {
 		overlayContext.fillRect((-(event.width/2)) >> 0, (-(event.height/2)) >> 0, event.width, event.height);
 		overlayContext.rotate((Math.PI/2)-event.angle);
 		overlayContext.translate(-event.x, -event.y);
+
+		// if (game == "dodge"){
+
+		// } else if (game == "")
 	}
 });
 

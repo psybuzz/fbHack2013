@@ -19,15 +19,15 @@ function picture() {
 				}
 				this.filled.push(row);
 			}
-			this.num_pixels = im_width * im_height / 4;
+			this.num_pixels = im_width * im_height / 6;
 			this.x = x_value;
 			this.y = y_value;
 		},
 
 		update: function() {
 			this.num_filled = 0;
-			for (var i = 0; i < this.width; i+=4) {
-				for (var j = 0; j < this.height; j+=4) {
+			for (var i = 0; i < this.width; i+=6) {
+				for (var j = 0; j < this.height; j+=6) {
 					var curr_pixel = overlayContext.getImageData(i, j, 1, 1).data;
 					if (curr_pixel[0] != 0 || curr_pixel[1] != 0 || curr_pixel[2] != 0) {
 						this.filled[i][j] = 1;
@@ -44,7 +44,7 @@ function picture() {
 
 		checkDone: function() {
 			// console.log(this.num_filled + " out of " + (this.num_pixels * .71 / 4));
-			return this.num_filled >= (this.num_pixels * .71 / 4);
+			return this.num_filled >= (this.num_pixels * .71 / 6);
 		}
 	}
 }

@@ -1,13 +1,10 @@
 <html>
 <head>
 	<style>
-		video{
+		video, #overlay{
 			-moz-transform: scale(-3,3);
-		}
-		#overlay{
-			-moz-transform: scale(-3,3);
-			top: 75px !important;
-			left:400px !important;
+			top: 50px !important;
+			left:285px !important;
 		}
 		.navbar{
 			z-index:2;
@@ -153,11 +150,13 @@
      <input id="searchButton" type="image" src="#"> -->
 	</div>
 <div style = "margin:20; padding:5px; z-index:-1" class="text-center"> 	
-	<canvas id="compare" width="320" height="240" style="display:none; z-index:-1"></canvas>
-	<video id="vid" autoplay loop width="320" height="240" style="z-index:-1"></video>
-	<canvas id="overlay" width="320" height="240" style="z-index:-1"></canvas>
-	<canvas id="debug" width="320" height="240" style="z-index:-1"></canvas>
-	
+  <div style="position:relative">
+  	<canvas id="compare" width="320" height="240" style="display:none; z-index:-1"></canvas>
+  	<video id="vid" autoplay loop width="320" height="240" style="z-index:-1"></video>
+  	<canvas id="overlay" width="320" height="240" style="z-index:-1"></canvas>
+  	<canvas id="debug" width="320" height="240" style="z-index:-1"></canvas>
+	</div>
+
 	<p id='gUMMessage'></p>
 	<p>Status : <span id='headtrackerMessage'></span></p>
 	<p><input type="button" onclick="htracker.stop();htracker.start();" value="reinitiate facedetection"></input>
