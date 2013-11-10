@@ -75,6 +75,7 @@ document.addEventListener("facetrackingEvent", function( event ) {
 		// 	overlayContext.clearRect(0,0,320,240);
 		// }
 		// console.log("drawing...")
+		console.log("x: " + (event.x) + ", y: " + (event.y) );
 
 		overlayContext.translate(event.x, event.y)
 		overlayContext.rotate(event.angle-(Math.PI/2));
