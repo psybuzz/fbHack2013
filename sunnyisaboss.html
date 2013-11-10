@@ -6,13 +6,12 @@
 		}
 		#overlay{
 			-moz-transform: scale(-1,1);
-			top: 75px !important;
+			top: 50px !important;
 		}
 	</style>
 	<script src="js/jquery-latest.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/headtrackr.js"></script>
-  <script src="js/datastructure.js"></script>
 	<link type ="text/css" rel="stylesheet" href="css/bootstrap.css"/>
 <!-- 	<link type = "text/css" rel = "stylesheet" href = "css/style.css"/> -->
 </head>
@@ -23,7 +22,7 @@
     // init the FB JS SDK
     FB.init({
       appId      : '227223084111543',                        // App ID from the app dashboard
-      channelUrl : '//file:///Users/Sunny/Documents/UIUC/Hackathon%202013/Keen/fbHack2013/channel.html', // Channel file for x-domain comms
+      channelUrl : 'mvp-keen.herokuapp.com/channel.html', // Channel file for x-domain comms
       status     : true,                                 // Check Facebook Login status
       xfbml      : true                                  // Look for social plugins on the page
     });
@@ -55,7 +54,7 @@
   window.fbAsyncInit = function() {
   FB.init({
     appId      : '227223084111543', // App ID
-    channelUrl : '//file:///Users/Sunny/Documents/UIUC/Hackathon%202013/Keen/fbHack2013/channel.html', // Channel File
+    channelUrl : 'mvp-keen.herokuapp.com/channel.html', // Channel File
     status     : true, // check login status
     cookie     : true, // enable cookies to allow the server to access the session
     xfbml      : true  // parse XFBML
@@ -116,6 +115,7 @@
 	<div class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 		<div class="navbar-header" style = "background-color: #3B5998">
+	<script src="js/datastructure.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body style="margin:0">
@@ -133,7 +133,7 @@
 			<div class="navbar-collapse collapse" style = "background-color: #3B5998">
 			<ul class="nav navbar-nav">
 				<li><a href = "#" style = "color: white; font-family:Tahoma">HOME</a></li>
-				<li><a href = "#" style = "color: white; font-family:Tahoma">WHAT DO</a></li>
+				<li><a href = "#" style = "color: white; font-family:Tahoma">HOW TO PLAY</a></li>
 				<li><a href = "#" style = "color: white; font-family:Tahoma">MVP_KEEN</a></li>
 				<li><a href = "#" style = "color: white; font-family:Tahoma">CONTACT</a></li>
 				<li> <form class="navbar-form navbar-left" role="search">
