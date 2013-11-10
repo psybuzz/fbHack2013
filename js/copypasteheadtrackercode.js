@@ -57,7 +57,10 @@ var htracker = new headtrackr.Tracker({altVideo : {}, calcAngles : true, ui : fa
 htracker.init(videoInput, canvasInput);
 htracker.start();
 
-//var shapeFinder = new picture();
+var shapeFinder = new picture();
+shapeFinder.initialize(50,50,50,50)
+var realX;
+var realY;
 
 document.addEventListener("facetrackingEvent", function( event ) {
 	// clear canvas if we've colored most of the window
@@ -75,8 +78,10 @@ document.addEventListener("facetrackingEvent", function( event ) {
 		// 	overlayContext.clearRect(0,0,320,240);
 		// }
 		// console.log("drawing...")
-		console.log("x: " + (event.x) + ", y: " + (event.y) );
-
+		realX = canvasOverlay.width - (event.x + event.width);
+		realY = event.y - 75;
+		collisionDetection(event, shapeFinder)
+		console.log("x: " + (realX) + ", y: " + (event.y) );
 		overlayContext.translate(event.x, event.y)
 		overlayContext.rotate(event.angle-(Math.PI/2));
 		overlayContext.strokeStyle = "#00CC00";
@@ -94,5 +99,14 @@ function showProbabilityCanvas() {
 		debugCanvas.style.display = 'block';
 	} else {
 		debugCanvas.style.display = 'none';
+	}
+}
+
+function collisionDetection(event, shapeFinder){
+	if (realX + event.width >= shapeFinder.x && 
+		realY + event.height >= shapeFinder.y && 
+		realX <= shapeFinder.x + shapeFinder.width && 
+		realY <= shapeFinder.y + shapeFinder.height){
+		console.log("awogjaoefjaweoigjaeoifjaweife");
 	}
 }
