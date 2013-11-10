@@ -1,4 +1,10 @@
 console.log("I'm the best mayne, I did it");
+//initialize screen size
+// $('canvas').attr()
+// vas id="compare" width="320" height="240" style="display:none"></canvas>
+// 	<video id="vid" autoplay loop width="320" height="240"></video>
+// 	<canvas id="overlay" width="320" height="240"></canvas>
+// 	<canvas id="debug" width="320" height="240"></canvas>
 
 // set up video and canvas elements needed
 
@@ -6,6 +12,9 @@ var videoInput = document.getElementById('vid');
 var canvasInput = document.getElementById('compare');
 var canvasOverlay = document.getElementById('overlay')
 var debugOverlay = document.getElementById('debug');
+// debugOverlay.width = canvasOverlay.width = canvasInput.width = videoInput.width = window.innerWidth * 0.9*1.5;
+// debugOverlay.height = canvasOverlay.height = canvasInput.height = videoInput.height = window.innerHeight * 0.9;
+
 var overlayContext = canvasOverlay.getContext('2d');
 canvasOverlay.style.position = "absolute";
 canvasOverlay.style.top = '0px';
@@ -48,13 +57,25 @@ var htracker = new headtrackr.Tracker({altVideo : {}, calcAngles : true, ui : fa
 htracker.init(videoInput, canvasInput);
 htracker.start();
 
-// for each facetracking event received draw rectangle around tracked face on canvas
+var shapeFinder = new picture();
 
 document.addEventListener("facetrackingEvent", function( event ) {
-	// clear canvas
-	// overlayContext.clearRect(0,0,320,240);
+	// clear canvas if we've colored most of the window
+	// if (percentCovered() > tolerance){
+	// 	overlayContext.clearRect(0,0,320,240);
+	// }
+	
 	// once we have stable tracking, draw rectangle
 	if (event.detection == "CS") {
+		// console.log("updating...")
+		// shapeFinder.update();
+		// console.log(shapeFinder.checkDone())
+		// if (shapeFinder.checkDone()){
+		// 	alert("FUH YEAHHH");
+		// 	overlayContext.clearRect(0,0,320,240);
+		// }
+		// console.log("drawing...")
+
 		overlayContext.translate(event.x, event.y)
 		overlayContext.rotate(event.angle-(Math.PI/2));
 		overlayContext.strokeStyle = "#00CC00";
