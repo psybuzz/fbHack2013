@@ -213,8 +213,13 @@ headtrackr.Tracker = function(params) {
 	
 	track = function() {
 		// Copy video to canvas
+		// canvasContext.scale(1,-1);
 		canvasContext.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
-		canvasContext.scale(-1, 1);
+<<<<<<< HEAD
+=======
+		// canvasContext.scale(1,1);
+		
+>>>>>>> 9c582e49317ba5d99c2bfe07bcf4ecc97c8c893b
 		// if facetracking hasn't started, initialize facetrackr
 		if (facetracker === undefined) {
 			facetracker = new headtrackr.facetrackr.Tracker({debug : params.debug, calcAngles : params.calcAngles});
@@ -355,7 +360,9 @@ headtrackr.Tracker = function(params) {
 		
 		// sometimes canvasContext is not available yet, so try and catch if it's not there...
 		try {
+			// canvasContext.scale(1,-1);
       canvasContext.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
+      // canvasContext.scale(1,1);
       
       // in some cases, the video sends events before starting to draw
       // so check that we have something on video before starting to track

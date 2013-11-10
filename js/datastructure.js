@@ -2,12 +2,12 @@ function picture() {
 	return {
 		width: 0,
 		height: 0, 
-		filled[],
+		filled: [],
 		percentage: 0,
 		num_pixels: 0,
 		num_filled: 0,
 
-		function initilaize(im_width, im_height) {
+		initialize: function (im_width, im_height) {
 			this.width = im_width;
 			this.height = im_height;
 			for (var i = 0; i < im_width; i++) {
@@ -20,7 +20,7 @@ function picture() {
 			num_pixels = im_width * im_height;
 		},
 
-		function update() {
+		update: function() {
 			for (var i = 0; i < this.width; i++) {
 				for (var j = 0; j < this.height; j++) {
 					var curr_pixel = overlayContext.getImageData(i, j, 1, 1).data;
@@ -32,7 +32,7 @@ function picture() {
 			}
 		},
 
-		function checkDone() {
+		checkDone: function() {
 			return num_filled >= (num_pixels * 9 / 10);
 		}
 	}
