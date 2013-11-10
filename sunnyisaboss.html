@@ -5,9 +5,41 @@
 	<script src="js/jquery-latest.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/headtrackr.js"></script>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link type ="text/css" rel="stylesheet" href="css/bootstrap.css"/>
+<!-- 	<link type = "text/css" rel = "stylesheet" href = "css/style.css"/> -->
 </head>
 <body style="margin:0">
+	<!-- Fixed Navigation Bar 
+	=================================== -->
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+		<div class="navbar-header" style = "background-color: #3B5998">
+			<button type="button" class="navbar-toggle" data-toggle"collapse" data-target=".navbar-collapse">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			</button>
+			<a href = "#" class="navbar-brand" >Best App NA</a>
+			</div>
+			<div class="navbar-collapse collapse" style = "background-color: #3B5998">
+			<ul class="nav navbar-nav">
+				<li><a href = "#">HOME</a></li>
+				<li><a href = "#">HOW TO PLAY</a></li>
+				<li><a href = "#">MVP_KEEN</a></li>
+				<li><a href = "#">CONTACT</a></li>
+				<li> <form class="navbar-form navbar-left" role="search">
+  			  <div class="form-group">
+      		   <input type="search" class="form-control" id="searchBar" placeholder="Search for something">
+    			</div>
+    			<button type="search" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+				</form></li>
+			</ul>
+	</div>
+	<div id="navBar">
+     <!-- <input id="searchBox" type="text" placeholder="Search Our Site">
+     <input id="searchButton" type="image" src="#"> -->
+</div>
+<div style = "margin:20; padding:5px"> 	
 	<canvas id="compare" width="320" height="240" style="display:none"></canvas>
 	<video id="vid" autoplay loop width="320" height="240"></video>
 	<canvas id="overlay" width="320" height="240"></canvas>
@@ -18,7 +50,7 @@
 	<p><input type="button" onclick="htracker.stop();htracker.start();" value="reinitiate facedetection"></input>
 	<br/><br/>
 	<input type="checkbox" onclick="showProbabilityCanvas()" value="asdfasd"></input>Show probability-map</p>
-
+</div>	
 
 	<script type="text/javascript" src="js/copypasteheadtrackercode.js"></script>
 </body>
