@@ -57,7 +57,7 @@ var htracker = new headtrackr.Tracker({altVideo : {}, calcAngles : true, ui : fa
 htracker.init(videoInput, canvasInput);
 htracker.start();
 
-var shapeFinder = new picture();
+//var shapeFinder = new picture();
 
 document.addEventListener("facetrackingEvent", function( event ) {
 	// clear canvas if we've colored most of the window

@@ -2,12 +2,14 @@ function picture() {
 	return {
 		width: 0,
 		height: 0, 
-		filled: [],
+		filled[],
 		percentage: 0,
 		num_pixels: 0,
 		num_filled: 0,
+		x: 0,
+		y: 0,
 
-		initialize: function (im_width, im_height) {
+		initialize: function(im_width, im_height, x_value, y_value) {
 			this.width = im_width;
 			this.height = im_height;
 			for (var i = 0; i < im_width; i++) {
@@ -17,7 +19,9 @@ function picture() {
 				}
 				filled.push(row);
 			}
-			num_pixels = im_width * im_height;
+			this.num_pixels = im_width * im_height;
+			this.x = x_value;
+			this.y = y_value;
 		},
 
 		update: function() {
@@ -32,11 +36,17 @@ function picture() {
 			}
 		},
 
+		move: function(x_dest, y_dest) {
+			this.x = x_dest;
+			this.y = y_dest;
+		},
+
 		checkDone: function() {
-			return num_filled >= (num_pixels * 9 / 10);
+			return num_filled >= num_pixels * 9 / 10
 		}
 	}
 }
+
 /*
 function node(pixel_data, x_loc, y_loc) {
 	return {
