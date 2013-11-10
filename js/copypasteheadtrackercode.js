@@ -48,13 +48,25 @@ var htracker = new headtrackr.Tracker({altVideo : {}, calcAngles : true, ui : fa
 htracker.init(videoInput, canvasInput);
 htracker.start();
 
-// for each facetracking event received draw rectangle around tracked face on canvas
+var shapeFinder = new picture();
 
 document.addEventListener("facetrackingEvent", function( event ) {
-	// clear canvas
-	// overlayContext.clearRect(0,0,320,240);
+	// clear canvas if we've colored most of the window
+	// if (percentCovered() > tolerance){
+	// 	overlayContext.clearRect(0,0,320,240);
+	// }
+	
 	// once we have stable tracking, draw rectangle
 	if (event.detection == "CS") {
+		// console.log("updating...")
+		// shapeFinder.update();
+		// console.log(shapeFinder.checkDone())
+		// if (shapeFinder.checkDone()){
+		// 	alert("FUH YEAHHH");
+		// 	overlayContext.clearRect(0,0,320,240);
+		// }
+		// console.log("drawing...")
+
 		overlayContext.translate(event.x, event.y)
 		overlayContext.rotate(event.angle-(Math.PI/2));
 		overlayContext.strokeStyle = "#00CC00";
