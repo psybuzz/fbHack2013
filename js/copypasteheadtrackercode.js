@@ -58,9 +58,12 @@ htracker.init(videoInput, canvasInput);
 htracker.start();
 
 var shapeFinder = new picture();
+var testFinder = new picture();
 shapeFinder.initialize(50,50,50,50)
 var realX;
 var realY;
+testFinder.initialize(canvasOverlay.width, canvasOverlay.height);
+
 
 document.addEventListener("facetrackingEvent", function( event ) {
 	// clear canvas if we've colored most of the window
@@ -70,6 +73,7 @@ document.addEventListener("facetrackingEvent", function( event ) {
 	
 	// once we have stable tracking, draw rectangle
 	if (event.detection == "CS") {
+
 		// console.log("updating...")
 		// shapeFinder.update();
 		// console.log(shapeFinder.checkDone())
@@ -82,6 +86,14 @@ document.addEventListener("facetrackingEvent", function( event ) {
 		realY = event.y - 75;
 		collisionDetection(event, shapeFinder)
 		console.log("x: " + (realX) + ", y: " + (event.y) );
+		testFinder.update();
+		if (testFinder.checkDone()){
+			alert("FUH YEAHHH");
+			overlayContext.clearRect(0,0,320,240);
+		}
+		// console.log("x: " + (event.x) + ", y: " + (event.y) );
+
+
 		overlayContext.translate(event.x, event.y)
 		overlayContext.rotate(event.angle-(Math.PI/2));
 		overlayContext.strokeStyle = "#00CC00";
