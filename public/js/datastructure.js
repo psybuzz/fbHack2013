@@ -2,7 +2,7 @@ function picture() {
 	return {
 		width: 0,
 		height: 0, 
-		filled[],
+		filled: [],
 		percentage: 0,
 		num_pixels: 0,
 		num_filled: 0,
@@ -43,8 +43,12 @@ function picture() {
 		},
 
 		checkDone: function() {
+<<<<<<< HEAD
+			return this.num_filled >= this.num_pixels * 9 / 10
+=======
 			// console.log(this.num_filled + " out of " + (this.num_pixels * .71 / 4));
 			return this.num_filled >= (this.num_pixels * .71 / 4);
+>>>>>>> 430296ac5ef6e9553e68592a093fe0102300f6a9
 		}
 	}
 }

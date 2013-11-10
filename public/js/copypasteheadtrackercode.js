@@ -58,7 +58,12 @@ htracker.init(videoInput, canvasInput);
 htracker.start();
 
 var shapeFinder = new picture();
-shapeFinder.initialize(canvasOverlay.width, canvasOverlay.height);
+var testFinder = new picture();
+shapeFinder.initialize(50,50,50,50)
+var realX;
+var realY;
+testFinder.initialize(canvasOverlay.width, canvasOverlay.height);
+
 
 document.addEventListener("facetrackingEvent", function( event ) {
 	// clear canvas if we've colored most of the window
@@ -68,12 +73,26 @@ document.addEventListener("facetrackingEvent", function( event ) {
 	
 	// once we have stable tracking, draw rectangle
 	if (event.detection == "CS") {
-		shapeFinder.update();
-		if (shapeFinder.checkDone()){
+
+		// console.log("updating...")
+		// shapeFinder.update();
+		// console.log(shapeFinder.checkDone())
+		// if (shapeFinder.checkDone()){
+		// 	alert("FUH YEAHHH");
+		// 	overlayContext.clearRect(0,0,320,240);
+		// }
+		// console.log("drawing...")
+		realX = canvasOverlay.width - (event.x + event.width);
+		realY = event.y - 75;
+		collisionDetection(event, shapeFinder)
+		console.log("x: " + (realX) + ", y: " + (event.y) );
+		testFinder.update();
+		if (testFinder.checkDone()){
 			alert("FUH YEAHHH");
 			overlayContext.clearRect(0,0,320,240);
 		}
 		// console.log("x: " + (event.x) + ", y: " + (event.y) );
+
 
 		overlayContext.translate(event.x, event.y)
 		overlayContext.rotate(event.angle-(Math.PI/2));
@@ -92,5 +111,14 @@ function showProbabilityCanvas() {
 		debugCanvas.style.display = 'block';
 	} else {
 		debugCanvas.style.display = 'none';
+	}
+}
+
+function collisionDetection(event, shapeFinder){
+	if (realX + event.width >= shapeFinder.x && 
+		realY + event.height >= shapeFinder.y && 
+		realX <= shapeFinder.x + shapeFinder.width && 
+		realY <= shapeFinder.y + shapeFinder.height){
+		console.log("awogjaoefjaweoigjaeoifjaweife");
 	}
 }
