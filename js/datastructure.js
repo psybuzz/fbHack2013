@@ -5,7 +5,7 @@ function picture() {
 		filled[],
 		percentage: 0,
 		num_pixels: 0,
-		num_filled: 0
+		num_filled: 0,
 
 		function initilaize(im_width, im_height) {
 			this.width = im_width;
@@ -18,7 +18,7 @@ function picture() {
 				filled.push(row);
 			}
 			num_pixels = im_width * im_height;
-		}
+		},
 
 		function update() {
 			for (var i = 0; i < this.width; i++) {
@@ -30,7 +30,7 @@ function picture() {
 					}
 				}
 			}
-		}
+		},
 
 		function checkDone() {
 			return num_filled >= (num_pixels * 9 / 10);
