@@ -9,11 +9,11 @@ console.log("I'm the best mayne, I did it");
 // set up video and canvas elements needed
 
 var videoInput = document.getElementById('vid');
-// videoInput
 var canvasInput = document.getElementById('compare');
 var canvasOverlay = document.getElementById('overlay')
 var debugOverlay = document.getElementById('debug');
-
+// debugOverlay.width = canvasOverlay.width = canvasInput.width = videoInput.width = window.innerWidth * 0.9*1.5;
+// debugOverlay.height = canvasOverlay.height = canvasInput.height = videoInput.height = window.innerHeight * 0.9;
 
 var overlayContext = canvasOverlay.getContext('2d');
 canvasOverlay.style.position = "absolute";
