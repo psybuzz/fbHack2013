@@ -1,11 +1,20 @@
 console.log("I'm the best mayne, I did it");
+//initialize screen size
+// $('canvas').attr()
+// vas id="compare" width="320" height="240" style="display:none"></canvas>
+// 	<video id="vid" autoplay loop width="320" height="240"></video>
+// 	<canvas id="overlay" width="320" height="240"></canvas>
+// 	<canvas id="debug" width="320" height="240"></canvas>
 
 // set up video and canvas elements needed
 
 var videoInput = document.getElementById('vid');
+// videoInput
 var canvasInput = document.getElementById('compare');
 var canvasOverlay = document.getElementById('overlay')
 var debugOverlay = document.getElementById('debug');
+
+
 var overlayContext = canvasOverlay.getContext('2d');
 canvasOverlay.style.position = "absolute";
 canvasOverlay.style.top = '0px';
