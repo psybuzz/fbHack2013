@@ -215,8 +215,6 @@ headtrackr.Tracker = function(params) {
 		// Copy video to canvas
 		// canvasContext.scale(1,-1);
 		canvasContext.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
-		// canvasContext.scale(1,1);
-		
 		// if facetracking hasn't started, initialize facetrackr
 		if (facetracker === undefined) {
 			facetracker = new headtrackr.facetrackr.Tracker({debug : params.debug, calcAngles : params.calcAngles});
