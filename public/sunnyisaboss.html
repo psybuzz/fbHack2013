@@ -2,17 +2,25 @@
 <head>
 	<style>
 		video{
-			-moz-transform: scale(-1,1);
+			-moz-transform: scale(-3,3);
 		}
 		#overlay{
+<<<<<<< HEAD
 			-moz-transform: scale(-1,1);
+			top: 50px !important;
+=======
+			-moz-transform: scale(-3,3);
 			top: 75px !important;
+			left:400px !important;
+		}
+		.navbar{
+			z-index:2;
+>>>>>>> 430296ac5ef6e9553e68592a093fe0102300f6a9
 		}
 	</style>
 	<script src="js/jquery-latest.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/headtrackr.js"></script>
-  <script src="js/datastructure.js"></script>
 	<link type ="text/css" rel="stylesheet" href="css/bootstrap.css"/>
 <!-- 	<link type = "text/css" rel = "stylesheet" href = "css/style.css"/> -->
 </head>
@@ -23,7 +31,7 @@
     // init the FB JS SDK
     FB.init({
       appId      : '227223084111543',                        // App ID from the app dashboard
-      channelUrl : '//file:///Users/Sunny/Documents/UIUC/Hackathon%202013/Keen/fbHack2013/channel.html', // Channel file for x-domain comms
+      channelUrl : 'https://mvp-keen.herokuapp.com/channel.html', // Channel file for x-domain comms
       status     : true,                                 // Check Facebook Login status
       xfbml      : true                                  // Look for social plugins on the page
     });
@@ -55,7 +63,7 @@
   window.fbAsyncInit = function() {
   FB.init({
     appId      : '227223084111543', // App ID
-    channelUrl : '//file:///Users/Sunny/Documents/UIUC/Hackathon%202013/Keen/fbHack2013/channel.html', // Channel File
+    channelUrl : 'https://mvp-keen.herokuapp.com/channel.html', // Channel File
     status     : true, // check login status
     cookie     : true, // enable cookies to allow the server to access the session
     xfbml      : true  // parse XFBML
@@ -116,6 +124,7 @@
 	<div class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 		<div class="navbar-header" style = "background-color: #3B5998">
+	<script src="js/datastructure.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body style="margin:0">
@@ -133,7 +142,7 @@
 			<div class="navbar-collapse collapse" style = "background-color: #3B5998">
 			<ul class="nav navbar-nav">
 				<li><a href = "#" style = "color: white; font-family:Tahoma">HOME</a></li>
-				<li><a href = "#" style = "color: white; font-family:Tahoma">WHAT DO</a></li>
+				<li><a href = "#" style = "color: white; font-family:Tahoma">HOW TO PLAY</a></li>
 				<li><a href = "#" style = "color: white; font-family:Tahoma">MVP_KEEN</a></li>
 				<li><a href = "#" style = "color: white; font-family:Tahoma">CONTACT</a></li>
 				<li> <form class="navbar-form navbar-left" role="search">
@@ -147,12 +156,12 @@
 	<div id="navBar">
      <!-- <input id="searchBox" type="text" placeholder="Search Our Site">
      <input id="searchButton" type="image" src="#"> -->
-</div>
-<div style = "margin:20; padding:5px"> 	
-	<canvas id="compare" width="320" height="240" style="display:none"></canvas>
-	<video id="vid" autoplay loop width="320" height="240"></video>
-	<canvas id="overlay" width="320" height="240"></canvas>
-	<canvas id="debug" width="320" height="240"></canvas>
+	</div>
+<div style = "margin:20; padding:5px; z-index:-1" class="text-center"> 	
+	<canvas id="compare" width="320" height="240" style="display:none; z-index:-1"></canvas>
+	<video id="vid" autoplay loop width="320" height="240" style="z-index:-1"></video>
+	<canvas id="overlay" width="320" height="240" style="z-index:-1"></canvas>
+	<canvas id="debug" width="320" height="240" style="z-index:-1"></canvas>
 	
 	<p id='gUMMessage'></p>
 	<p>Status : <span id='headtrackerMessage'></span></p>
