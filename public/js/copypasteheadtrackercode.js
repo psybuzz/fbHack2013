@@ -73,15 +73,6 @@ document.addEventListener("facetrackingEvent", function( event ) {
 	
 	// once we have stable tracking, draw rectangle
 	if (event.detection == "CS") {
-
-		// console.log("updating...")
-		// shapeFinder.update();
-		// console.log(shapeFinder.checkDone())
-		// if (shapeFinder.checkDone()){
-		// 	alert("FUH YEAHHH");
-		// 	overlayContext.clearRect(0,0,320,240);
-		// }
-		// console.log("drawing...")
 		realX = canvasOverlay.width - (event.x + event.width);
 		realY = event.y - 75;
 		collisionDetection(event, shapeFinder)
